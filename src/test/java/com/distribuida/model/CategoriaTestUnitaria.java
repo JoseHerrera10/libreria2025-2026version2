@@ -3,8 +3,8 @@ package com.distribuida.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CategoriaTestUnitaria {
 
@@ -36,6 +36,17 @@ public class CategoriaTestUnitaria {
                 () -> assertEquals(2, categoria.getIdCategoria()),
                 () -> assertEquals("terror2", categoria.getCategoria()),
                 () -> assertEquals("libro2", categoria.getDescripcion())
+        );
+    }
+
+    @Test
+    public void categoriaTestToString(){
+        String str = categoria.toString();
+        assertAll("Validar datos categoria - To String",
+                () -> assertTrue(str.contains("1")),
+                () -> assertTrue(str.contains("terror")),
+                () -> assertTrue(str.contains("libro de terror"))
+
         );
     }
 
